@@ -25,9 +25,3 @@ docker-compose up
 The API is available at `http://localhost:8000`.
 
 Interactive API docs are available at `http://localhost:8000/docs`.
-
-## Test
-
-```bash
-pytest
-```
