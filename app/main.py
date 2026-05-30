@@ -24,8 +24,3 @@ app = FastAPI(
 
 app.include_router(users_router)
 app.include_router(projects_router)
-
-
-@app.get("/health", tags=["Health"], summary="Health check")
-async def health_check() -> dict[str, str]:
-    return {"status": "ok"}
