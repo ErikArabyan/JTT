@@ -19,7 +19,7 @@ POSTGRES_PASSWORD=
 For Docker Compose, `POSTGRES_HOST` should normally be `db`.
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 The API is available at `http://localhost:8000`.
