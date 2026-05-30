@@ -2,6 +2,12 @@ from functools import lru_cache
 from os import getenv
 from urllib.parse import quote_plus
 
+DEFAULT_POSTGRES_HOST = "localhost"
+DEFAULT_POSTGRES_PORT = "5432"
+DEFAULT_POSTGRES_DB = "JTT"
+DEFAULT_POSTGRES_USER = "postgres"
+DEFAULT_POSTGRES_PASSWORD = "password"
+
 
 class Settings:
     postgres_host: str
@@ -11,11 +17,11 @@ class Settings:
     postgres_password: str
 
     def __init__(self) -> None:
-        self.postgres_host = getenv("POSTGRES_HOST")
-        self.postgres_port = getenv("POSTGRES_PORT")
-        self.postgres_db = getenv("POSTGRES_DB")
-        self.postgres_user = getenv("POSTGRES_USER")
-        self.postgres_password = getenv("POSTGRES_PASSWORD")
+        self.postgres_host = getenv("POSTGRES_HOST", DEFAULT_POSTGRES_HOST)
+        self.postgres_port = getenv("POSTGRES_PORT", DEFAULT_POSTGRES_PORT)
+        self.postgres_db = getenv("POSTGRES_DB", DEFAULT_POSTGRES_DB)
+        self.postgres_user = getenv("POSTGRES_USER", DEFAULT_POSTGRES_USER)
+        self.postgres_password = getenv("POSTGRES_PASSWORD", DEFAULT_POSTGRES_PASSWORD)
 
     @property
     def async_database_url(self) -> str:

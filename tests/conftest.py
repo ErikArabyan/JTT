@@ -29,6 +29,8 @@ def _load_env_file() -> None:
 
 
 _load_env_file()
+if environ.get("POSTGRES_HOST") == "db":
+    environ["POSTGRES_HOST"] = "localhost"
 
 
 @pytest_asyncio.fixture
